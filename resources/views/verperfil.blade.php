@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-	<h3> Seu Perfil</h3>
+	<h3> Seu Perfil</h3><a href="/perfil">Editar</a>
 	<hr />
 	@if(!empty($perfil->caminho_foto))
 		<img src="{{ $perfil->caminho_foto }}" alt="" width="200px">

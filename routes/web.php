@@ -21,3 +21,4 @@ Route::post('/perfil','PerfilController@update');
 Route::post('/perfil/foto','PerfilController@atualizarfoto');
 Route::get('/perfil/foto','PerfilController@perfilfoto');
 Route::get('/verperfil/{id}','PerfilController@verperfil');
+Route::get('/perfil/cidade','PerfilController@atualizarcidade');
