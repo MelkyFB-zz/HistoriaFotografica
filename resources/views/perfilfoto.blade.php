@@ -2,11 +2,10 @@
 
 @section('content')<h3>Atualizando seu Perfil</h3>
 <div class="container">
-
 	<ul class="nav nav-tabs">
-		<li role="presentation"><a href="/perfil">Dados</a></li>
-		<li role="presentation"><a href="/perfil/cidade">Cidade</a></li>
-		<li role="presentation" class="active"><a href="#">Foto</a></li>
+		<li class="nav-item"><a class="nav-link" href="/perfil">Dados</a></li>
+		<li class="nav-item"><a class="nav-link" href="/perfil/cidade">Cidade</a></li>
+		<li class="nav-item"><a class="nav-link active" href="#">Foto</a></li>
 	</ul>
 	<hr />
 

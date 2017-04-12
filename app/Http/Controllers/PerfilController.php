@@ -9,6 +9,7 @@ use Storage;
 
 use App\Estado;
 use App\User;
+use App\Cidade;
 
 class PerfilController extends Controller
 {
@@ -71,11 +72,20 @@ class PerfilController extends Controller
         }
         return redirect('/verperfil/me/');
     }
-    public function atualizarcidade(){
+    public function atualizarcidade(Request $request){
         $user = Auth::user();
         $perfil = $user->perfil()->get()->first();
-        $estados = Estado::all();
-        return view('perfilcidade',compact('user','perfil','estados'));
+        if($request->input('cidade')) {
+            $cidade = Cidade::find($request->input('cidade'));
+            if($cidade){
+                $perfil->cidade_id = $cidade->id;
+                $perfil->save();
+            }
+            return redirect('/verperfil/me');
+        }
+        else{
+            $estados = Estado::all();
+            return view('perfilcidade',compact('user','perfil','estados'));
+        }
     }
-    public function atualizacidade()
 }

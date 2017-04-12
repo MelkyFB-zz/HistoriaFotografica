@@ -4,9 +4,9 @@
 <div class="container">
 	<h3>Atualizando seu Perfil</h3>
 	<ul class="nav nav-tabs">
-		<li role="presentation" class="active"><a href="#">Dados</a></li>
-		<li role="presentation"><a href="/perfil/cidade">Cidade</a></li>
-		<li role="presentation"><a href="/perfil/foto">Foto</a></li>
+		<li class="nav-item"><a class="nav-link active" href="#">Dados</a></li>
+		<li class="nav-item"><a class="nav-link" href="/perfil/cidade">Cidade</a></li>
+		<li class="nav-item"><a class="nav-link" href="/perfil/foto">Foto</a></li>
 	</ul>
 	<hr />
 	<form method="POST" action="/perfil" >
@@ -28,8 +28,10 @@
 		</div>
 
 		<div class="form-group">
-			<label for="sobrenome">Bio</label>
-			<textarea class="form-control" name="bio" rows="3" placeholder="Bio">{{ $perfil->bio }}</textarea>
+			<label for="sobrenome">Bio</label>			
+            <p class="lead emoji-picker-container">
+				<textarea data-emojiable="true" class="form-control" name="bio" rows="3" placeholder="Bio">{{ $perfil->bio }}</textarea>
+			</p>
 		</div>
 
 		<div class="form-group">

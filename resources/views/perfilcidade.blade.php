@@ -4,19 +4,20 @@
 <div class="container">
 
 	<ul class="nav nav-tabs">
-		<li role="presentation"><a href="/perfil">Dados</a></li>
-		<li role="presentation" class="active"><a href="/perfil/cidade">Cidade</a></li>
-		<li role="presentation"><a href="/perfil/foto">Foto</a></li>
+		<li class="nav-item"><a class="nav-link" href="/perfil">Dados</a></li>
+		<li class="nav-item"><a class="nav-link active" href="#">Cidade</a></li>
+		<li class="nav-item"><a class="nav-link" href="/perfil/foto">Foto</a></li>
 	</ul>
+
 	<hr />
 	<ul class="list-group">
 	  	@foreach($estados as $estado)
-		    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#{{$estado->estado}}">{{$estado->estado}}</button>
-			  <div id="{{$estado->estado}}" class="collapse">
+		    <li class="list-group-item">{{$estado->estado}}</li>
+			  <ul class="list-group">
 			  	@foreach($estado->cidades()->get() as $cidade)
-			    	<a href="/perfil/cidade/{{$cidade->id}}">{{ $cidade->nome }}</a>
+			    	<li class="list-group-item"><a href="/perfil/cidade/?cidade={{$cidade->id}}">{{ $cidade->nome }}</a></li>
 			    @endforeach
-			  </div>
+			  </li>
 		@endforeach
 	</ul>
 </div>
