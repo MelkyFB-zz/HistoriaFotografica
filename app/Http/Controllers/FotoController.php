@@ -23,8 +23,15 @@ class FotoController extends Controller
     }
     public function subirfoto(Request $request){
     	if($request->file('arquivo_foto')->isValid()){
-            $foto
-             = $request->file('arquivo_foto')->store('public/images/'.date('Ymd'));
-         }
+            $foto_caminho = $request->file('arquivo_foto')->store('public/images/'.date('Ymd'));
+            $foto = new Foto();
+            $foto->hash_foto = sha1_file(storage_path()."/app/".$foto_caminho);
+            $foto->caminho_foto = "/storage/".substr($foto_caminho, 6);
+            $try_foto = Foto::find('hash_foto','=',$foto->hash_foto)->get();
+            if(count($try_foto)){
+                Storage::delete("public/".substr($foto->caminho_foto, 10));
+                $foto->caminho_foto = $try_foto->caminho_foto;
+            }
+         }  
     }
 }

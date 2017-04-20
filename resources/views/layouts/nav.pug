@@ -1,0 +1,40 @@
+nav.navbar.navbar-toggleable-md.navbar-light.bg-primary.bg-faded.navbar-inverse
+	button.navbar-toggler.navbar-toggler-right(type="button",data-toggle="collapse",data-target="#navbarSupportedContent",aria-controls="navbarSupportedContent",aria-expanded="false",aria-label="Toggle navigation")
+		span.navbar-toggler-icon
+	a.navbar-brand(href="#") História Viva
+
+	div.collapse.navbar-collapse#bs-example-navbar-collapse-1
+		ul.navbar-nav.mr-auto
+			li.nav-item
+				a.nav-link(href="#") Home
+					span.sr-only (atual)
+
+				li.nav-item
+					a.nav-link(href="#") Fotos
+
+			form.form-inline.my-2.my-lg-0
+				<?php if(isset($cidade_selecionada) && $cidade_selecinada): ?>
+				input.form-control.mr-sm-2#cidade(value="#{$cidade_selecionada.nome} - #{$cidade_selecionada.estado['estado']}",name="cidade",type="text",placeholder="Cidade",data-provide="typeahead",autocomplete="off")
+				<?php else: ?>
+				input.form-control.mr-sm-2#cidade(name="cidade",type="text",placeholder="Cidade",data-provide="typeahead",autocomplete="off")
+				<?php endif ?>
+
+		form.form-inline.my-2.my-lg-0
+			input.form-control.mr-sm-2(type="text",placeholder="Procurar")
+			button.btn.btn-outline-success.my-2.my-sm-0(type="submit") Procurar
+
+		ul.nav.navbar-nav.navbar-right
+			<?php if(Auth::check()): ?>
+			li.nav-item.dropdown
+				a.nav-link.dropdown-toggle#navbarDropdownaccLink(href="http://example.com",data-toggle="dropdown",aria-haspopup="true",aria-expanded="false")	<?= substr($user->name,0,strpos($user->name,' ')) ?>
+					span.caret
+				ul.dropdown-menu(aria-labelledby="navbarDropdownaccLink")
+					a.dropdown-item(href="/perfil") Perfil
+					a.dropdown-item(href="/subirfoto") Subir Foto
+					a.dropdown-item(href="/logout") Sair
+			<?php else: ?>
+			li.nav-item
+			 	a.nav-link(href="/login") Entrar
+			li.nav-item
+			 	a.nav-link(href="/register") Cadastrar
+			<?php endif ?>

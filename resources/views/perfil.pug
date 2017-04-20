@@ -1,0 +1,32 @@
+extends layouts/main
+
+block content
+	.container
+		h3 Atualizando seu Perfil
+		ul.nav.nav-tabs
+			li.nav-item
+				a.nav-link.active(href='#') Dados
+			li.nav-item
+				a.nav-link(href='/perfil/cidade') Cidade
+			li.nav-item
+				a.nav-link(href='/perfil/foto') Foto
+		hr
+		form(method='POST', action='/perfil')
+			<?= csrf_field() ?>
+			.form-group
+				label(for='nome') Nome
+				input.form-control(type='text', name='nome', placeholder='Nome', value=$perfil.nome)
+			.form-group
+				label(for='sobrenome') Sobrenome
+				input.form-control(type='text', name='sobrenome', placeholder='Sobrenome', value=$perfil.sobrenome )
+			.form-group
+				label(for='email') Endereço de Email
+				input.form-control(type='email', name='email', placeholder='Email', value=$user.email)
+			.form-group
+				label(for='sobrenome') Bio
+				p.lead.emoji-picker-container
+					textarea.form-control(data-emojiable='true', name='bio', rows='3', placeholder='Bio')= $perfil.bio
+			.form-group
+				label(for='senha') Senha
+				input.form-control(type='password', name='senha', placeholder='Password')
+			button.btn.btn-default(type='submit') Atualizar Perfil

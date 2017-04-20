@@ -1,0 +1,30 @@
+extends layouts/main
+
+block content
+	h3 Atualizando seu Perfil
+	.container
+		ul.nav.nav-tabs
+			li.nav-item
+				a.nav-link(href="/perfil") Dados
+			li.nav-item
+				a.nav-link(href="/perfil/cidade") Cidade
+			li.nav-item
+				a.nav-link.active(href="#") Foto
+
+		hr
+		.form-group
+			if $perfil.caminho_foto
+				img(src=$perfil.caminho_foto,alt="",width="200px")
+			else
+				img(src="/img/semfoto.png",alt="Sem Foto",width="200px")
+
+		form.form-group(action='/perfil/foto', method='POST', enctype='multipart/form-data')
+			<?= csrf_field() ?>
+
+			.form-group
+				label.custom-file
+					input.custom-file-input#arquivo_foto(type="file",name="arquivo_foto")
+					span.custom-file-control
+
+			.form-group
+				button.btn.btn-default(type='submit') Enviar foto

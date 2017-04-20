@@ -1,0 +1,31 @@
+doctype html
+html
+	head
+		meta(charset="utf-8")
+		meta(name="viewport",content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no")
+		meta(http-equiv="X-UA-Compatible",content="IE=edge")
+		title Historia Viva
+		link(rel="stylesheet",href="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/css/tether.min.css")
+		link(rel="stylesheet",href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css")
+		link(href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css",rel="stylesheet")
+		link(href="/css/emoji.css",rel="stylesheet")
+		link(rel="stylesheet",type="text/css",href="https://fonts.googleapis.com/css?family=Raleway:100,600")
+		link(href="/css/site.css",rel="stylesheet")
+
+
+	body
+		div.conteiner-fluid
+			include nav
+			block  header
+			block content
+			include footer
+		script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js")
+		script(src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js")
+		script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js")
+		script(src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js")
+		script(src="//twemoji.maxcdn.com/twemoji.min.js")
+		script(src="/js/config.js")
+		script(src="/js/util.js")
+		script(src="/js/jquery.emojiarea.js")
+		script(src="/js/emoji-picker.js")
+		script(src="/js/site.js")

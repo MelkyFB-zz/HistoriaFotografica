@@ -1,0 +1,22 @@
+extends layouts/main
+
+block content
+	.container
+		h3 Seu Perfil
+		a(href="/perfil") Editar
+		hr
+		if $perfil.caminho_foto
+			img(src=$perfil.caminho_foto,alt="",width="200px")
+		else
+			img(src="/img/semfoto.png",alt="Sem Foto",width="200px")
+
+		p Nome: 
+			span= $user.name
+		p E-mail: 
+			span= $user.email
+		p Bio: 
+			span= $perfil.bio
+		p Cidade: 
+			span= $perfil.cidade.nome
+			span &nbsp;-&nbsp;
+			span= $perfil.cidade.estado.estado

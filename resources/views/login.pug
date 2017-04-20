@@ -1,0 +1,44 @@
+extends layouts/main
+
+block content
+.container
+	.row
+		.col-md-8.col-md-offset-2
+			.panel.panel-default
+				.panel-heading Login
+				.panel-body
+					form.form-horizontal(role="form".method="POST".action="/login")
+						<?= csrf_field() ?>
+
+						.form-group
+							label.col-md-4.control-label(for="email") E-Mail Address
+
+							.col-md-6
+								input.form-control#email(type="email",name="email",placeholder="E-mail Address",required,autofocus)
+
+									<?php if ($errors-has('email')): ?>
+									span.help-block
+										strong <?= $errors-first('email') ?>
+									<?php endif ?>
+
+						.form-group
+							label.col-md-4.control-label(for="password") Password
+
+							.col-md-6
+								input.form-control#password(type="password",name="password",placeholder="Password",required)
+
+									<?php if ($errors-has('password')): ?>
+									span.help-block
+										strong <?= $errors-first('password')
+									<?php endif ?>
+
+						.form-group
+							.col-md-6.col-md-offset-4
+								.checkbox
+									label
+										input(type="checkbox",name="remember") Remember Me
+
+						.form-group
+							.col-md-8.col-md-offset-4
+								button.btn.btn-primary(type="submit") Login
+								a.btn.btn-link(href="/forgotpassword")	Forgot Your Password?

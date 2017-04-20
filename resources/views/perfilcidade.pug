@@ -1,0 +1,23 @@
+extends layouts/main
+
+block content
+	h3 Atualizando seu Perfil
+	.container
+		ul.nav.nav-tabs
+			li.nav-item
+				a.nav-link(href='#') Dados
+			li.nav-item
+				a.nav-link.active(href='/perfil/cidade') Cidade
+			li.nav-item
+				a.nav-link(href='/perfil/foto') Foto
+		hr
+		#accordion(role="tablist",aria-multiselectable="true")
+			each estado in $estados
+				.card
+					.card-header(id="headingstate#{$estado.id}",role="tab")
+						h5.mb-0
+							a(data-toggle="collapse",data-parent="#accordion",href="#collapsestate#{$estado.id}",aria-expanded="true",aria-controls="collapsestate#{$estado.id}")= $estado.estado
+					.collapse(id="collapsestate#{$estado.id}",role="tabpanel",aria-labelledby="#headingstate#{$estado.id}")
+						.card-block
+							each cidade in $estado.cidades
+									a.btn.btn-secondary(href="/perfil/cidade/?cidade=#{cidade.id}")= cidade.nome

@@ -1,0 +1,91 @@
+extends layouts/main
+
+block content
+	.card
+		.card-header Mais Recentes
+			if $cidade_selecionada
+				| de #{$cidade_selecionada.nome} - #{$cidade_selecionada.estado['estado']}
+			else
+				| do site
+		.card-block
+			.carousel.slide#sliderecentes(data-ride="carousel")
+				ol.carousel-indicators
+					li.active(data-target="#sliderecentes",data-slide-to="0")
+					li(data-target="#sliderecentes",data-slide-to="1")
+					li(data-target="#sliderecentes",data-slide-to="2")
+				.carousel-inner(role="listbox")
+					.carousel-item.active(style="background-color: black;text-align: center")
+						.card
+							.card-block
+								.fluid-container(style="text-align: center")
+									.row
+										.col
+											img(src="/img/semfoto.png",alt="Sem Foto",)
+											h3 Titulo da Imagem 1
+											p Texto da Imagem 1 aqui pode ir um monte
+											| de babozeira pra encher pinico
+											| ate mesmo um emoji 😄
+										.col
+											img(src="/img/semfoto.png",alt="Sem Foto",)
+											h3 Titulo da Imagem 2
+											p Texto da Imagem 2 aqui pode ir um monte
+											| de babozeira pra encher pinico
+											| ate mesmo um emoji 😄
+										.col
+											img(src="/img/semfoto.png",alt="Sem Foto",)
+											h3 Titulo da Imagem 3
+											p Texto da Imagem 3 aqui pode ir um monte
+											| de babozeira pra encher pinico
+											| ate mesmo um emoji 😄
+					.carousel-item(style="background-color: black;text-align: center")
+						.card
+							.card-block
+								.fluid-container(style="text-align: center")
+									.row
+										.col
+											img(src="/img/semfoto.png",alt="Sem Foto",)
+											h3 Titulo da Imagem 1
+											p Texto da Imagem 1 aqui pode ir um monte
+											| de babozeira pra encher pinico
+											| ate mesmo um emoji 😄
+										.col
+											img(src="/img/semfoto.png",alt="Sem Foto",)
+											h3 Titulo da Imagem 2
+											p Texto da Imagem 2 aqui pode ir um monte
+											| de babozeira pra encher pinico
+											| ate mesmo um emoji 😄
+										.col
+											img(src="/img/semfoto.png",alt="Sem Foto",)
+											h3 Titulo da Imagem 3
+											p Texto da Imagem 3 aqui pode ir um monte
+											| de babozeira pra encher pinico
+											| ate mesmo um emoji 😄
+					.carousel-item(style="background-color: black;text-align: center")
+						.card
+							.card-block
+								.fluid-container(style="text-align: center")
+									.row
+										.col
+											img(src="/img/semfoto.png",alt="Sem Foto",)
+											h3 Titulo da Imagem 1
+											p Texto da Imagem 1 aqui pode ir um monte
+											| de babozeira pra encher pinico
+											| ate mesmo um emoji 😄
+										.col
+											img(src="/img/semfoto.png",alt="Sem Foto",)
+											h3 Titulo da Imagem 2
+											p Texto da Imagem 2 aqui pode ir um monte
+											| de babozeira pra encher pinico
+											| ate mesmo um emoji 😄
+										.col
+											img(src="/img/semfoto.png",alt="Sem Foto",)
+											h3 Titulo da Imagem 3
+											p Texto da Imagem 3 aqui pode ir um monte
+											| de babozeira pra encher pinico
+											| ate mesmo um emoji 😄
+				a.carousel-control-prev(href="#sliderecentes",role="button",data-slide="prev")
+					span.carousel-control-prev-icon(aria-hidden="true")
+					span.sr-only Anterior
+				a.carousel-control-next(href="#sliderecentes",role="button",data-slide="next")
+					span.carousel-control-next-icon(aria-hidden="true")
+					span.sr-only Próximo
