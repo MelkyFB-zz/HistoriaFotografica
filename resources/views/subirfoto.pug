@@ -4,6 +4,15 @@ block content
 	.container
 		h5 Adicionar Foto ao Site
 		hr
+		.card(style="width: 450px;text-align: center; padding-top: 25px; background: linear-gradient(to bottom, #FEFFD3, #FEFFE7 90%, #FEFFD3); box-shadow: 10px 10px 10px gray")
+			.container
+				img.card-img-top#arquivo_fotoimg(src="/img/semfoto.png",width= "400px")
+			.card-block
+				h3#nomeh3(style="font-family: Ubuntu; font-size: 2em") Nome da Foto
+				p#descricaop(style="font-family: Ubuntu; font-size: 1.5em") Descrição da Foto
+				.alert.alert-success#alertdiv(role="alert")
+		br
+
 		form.form-group(action="/subirfoto",method="POST",enctype="multipart/form-data")
 			<?= csrf_field() ?>
 
@@ -21,4 +30,13 @@ block content
 				p.lead.emoji-picker-container
 					textarea.form-control#descricao(data-emojiable="true",name="bio",rows="3",placeholder="Descrição")
 
+			.form-group
+				.input-group
+					span.input-group-addon#hashtags #
+					input.form-control#hashtagsipt(data-role="tagsinput",placeholder="Tags separadar por ,",aria-describedby="hashtags")
+
 			button.btn.btn-default(type="submit") Enviar foto
+
+
+block scripts
+	script(src="/js/subirfotos.js")

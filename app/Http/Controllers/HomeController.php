@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Estado;
 use App\Cidade;
+use App\Estado;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -25,13 +25,15 @@ class HomeController extends Controller {
 	public function index(Request $request) {
 		$cidade_selecionada = "";
 		if ($request->input('cidade')) {
-			if(Cidade::find($request->input('cidade')))
+			if (Cidade::find($request->input('cidade'))) {
 				$cidade_selecionada = Cidade::find($request->input('cidade'));
+			}
 		}
+
 		if (Auth::check()) {
 			$user = Auth::user();
 		}
 		$estados = Estado::all();
-		return view('home', compact('estados', 'user','cidade_selecionada'));
+		return view('home', compact('estados', 'user', 'cidade_selecionada'));
 	}
 }

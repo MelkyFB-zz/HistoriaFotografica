@@ -1,6 +1,6 @@
 $(function(){
-  twemoji.size = '16x16';
-  twemoji.parse(document.body);
+    twemoji.size = '36x36';
+    twemoji.parse(document.body);
 	window.emojiPicker = new EmojiPicker({
 		emojiable_selector: '[data-emojiable=true]',
 		assetsPath: '../lib/img/',

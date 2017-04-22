@@ -1,9 +1,9 @@
 nav.navbar.navbar-toggleable-md.navbar-light.bg-primary.bg-faded.navbar-inverse
 	button.navbar-toggler.navbar-toggler-right(type="button",data-toggle="collapse",data-target="#navbarSupportedContent",aria-controls="navbarSupportedContent",aria-expanded="false",aria-label="Toggle navigation")
 		span.navbar-toggler-icon
-	a.navbar-brand(href="#") História Viva
+	a.navbar-brand(href="#") Memória Viva
 
-	div.collapse.navbar-collapse#bs-example-navbar-collapse-1
+	div.collapse.navbar-collapse#navbarSupportedContent
 		ul.navbar-nav.mr-auto
 			li.nav-item
 				a.nav-link(href="#") Home
@@ -13,7 +13,7 @@ nav.navbar.navbar-toggleable-md.navbar-light.bg-primary.bg-faded.navbar-inverse
 					a.nav-link(href="#") Fotos
 
 			form.form-inline.my-2.my-lg-0
-				<?php if(isset($cidade_selecionada) && $cidade_selecinada): ?>
+				<?php if(isset($cidade_selecionada)): ?>
 				input.form-control.mr-sm-2#cidade(value="#{$cidade_selecionada.nome} - #{$cidade_selecionada.estado['estado']}",name="cidade",type="text",placeholder="Cidade",data-provide="typeahead",autocomplete="off")
 				<?php else: ?>
 				input.form-control.mr-sm-2#cidade(name="cidade",type="text",placeholder="Cidade",data-provide="typeahead",autocomplete="off")
